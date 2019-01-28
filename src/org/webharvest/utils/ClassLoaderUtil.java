@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 import java.io.File;
 import java.sql.*;
+import java.util.logging.Logger;
 
 /**
  * Class loading utility - used for loading JDBC driver classes and plugin classes.
@@ -38,6 +39,11 @@ public class ClassLoaderUtil {
         }
         public boolean jdbcCompliant() {
             return this.driver.jdbcCompliant();
+        }
+
+        @Override
+        public Logger getParentLogger() throws SQLFeatureNotSupportedException {
+            return null;
         }
     }
 
